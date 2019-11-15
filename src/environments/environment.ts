@@ -4,18 +4,17 @@
 
 export const environment = {
   production: true,
-  baseUrl: " https://api.mercadolibre.com/"
-  
-};
-export const firebase = {
-  apiKey: "AIzaSyAYJ5QNZHzpilOqnV1fBcpG5egJU5uexRI",
-  authDomain: "ecga-d9be8.firebaseapp.com",
-  databaseURL: "https://ecga-d9be8.firebaseio.com",
-  projectId: "ecga-d9be8",
-  storageBucket: "ecga-d9be8.appspot.com",
-  messagingSenderId: "846228575282",
-  appId: "1:846228575282:web:97e3f876b9657305add82b",
-  
+  baseUrlML: " https://api.mercadolibre.com/",
+  baseUrlE: " https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SERVICE-VERSION=1.0.0&SECURITY-APPNAME=dylanlow-ECGA2314-PRD-538876c40-e0a31d8c&RESPONSE-DATA-FORMAT=JSON&REST-PAYLOAD&keywords=",
+  firebase : {
+    apiKey: "AIzaSyAYJ5QNZHzpilOqnV1fBcpG5egJU5uexRI",
+    authDomain: "ecga-d9be8.firebaseapp.com",
+    databaseURL: "https://ecga-d9be8.firebaseio.com",
+    projectId: "ecga-d9be8",
+    storageBucket: "ecga-d9be8.appspot.com",
+    messagingSenderId: "846228575282",
+    appId: "1:846228575282:web:97e3f876b9657305add82b",  
+}
 }
 
 /*

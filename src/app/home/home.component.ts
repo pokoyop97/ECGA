@@ -21,9 +21,16 @@ export class HomeComponent implements OnInit {
 
   onSubmit(id: string) {
     this.item = this.searchForm.value.query;
-    this.apiService.getItem(this.item).subscribe( res => {
-      this.info = res.results;
-    });
+    if(this.item != ''){
+      this.apiService.getItemML(this.item).subscribe( res => {
+        this.info = res.results;
+      });
+      this.apiService.getItemE(this.item).subscribe( res => {
+        console.log(res)
+      });
+    }else{
+      alert("Ingrese un elemento para buscar")
+    }
   }
 
   ngOnInit() {
