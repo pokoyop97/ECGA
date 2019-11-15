@@ -1,0 +1,43 @@
+<div class="logo" style="text-align:center">
+    <img width="250" src="../assets/ebay logos/developersprogrammember_vert.png">
+    
+    <img width="250" src="../assets/ebay logos/mercado-libre.jpg">
+    </div>
+<div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="form-row form-group">
+      <div class="col">
+        <div><input formControlName="query" type="text" class="form-control" placeholder="Search"></div>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<section id="users" class="mt-5 container-proyectos">
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 " *ngFor="let info of info">
+          <div class="card_user">
+            <div class="card">
+              <div class="card-body text-center">
+                <p>
+                  <img class="img-fluid" src="{{info.thumbnail}}">
+                </p>
+                <p class="card-text">
+                  {{info.title}}
+                </p>
+                <p class="card-text">
+                    ${{info.price}}
+                  </p>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<app-login></app-login>
+<app-registro></app-registro>
