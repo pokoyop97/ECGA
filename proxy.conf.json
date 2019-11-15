@@ -1,6 +1,6 @@
 {
     "/api": {
-      "target": "http://localhost:4200",
+      "target": "https://ecga-d9be8.firebaseapp.com",
       "secure": "false",
       "changeOrigin": "true"
     }
