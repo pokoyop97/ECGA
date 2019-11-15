@@ -11,20 +11,25 @@ export class ApiService {
 
   getItemML( id: string ): Observable<any> {
     let headers = new HttpHeaders()
-        .set('Access-Control-Allow-Origin', '*')
-        .set('Access-Control-Allow-Headers', '*')
-        .set('Access-Control-Allow-Methods', '*');
+    .set('Content-Type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    .set('Access-Control-Allow-Headers', 'access-control-allow-headers,access-control-allow-methods,access-control-allow-origin')
+    .set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD, OPTIONS')
+    .set('Allow','GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS');
     return this.httpClient.get(environment.baseUrlML + 'sites/MLM/search?q=' + id + '&category=MLM1648', {headers: headers}).pipe( tap( res => {
        //console.log( 'Get Item Response:', res );
     } ) );
   }
   getItemE( id: string ): Observable<any> {
     let headers = new HttpHeaders()
+        .set('Content-Type', 'application/json')
         .set('Access-Control-Allow-Origin', '*')
-        .set('Access-Control-Allow-Headers', '*')
-        .set('Access-Control-Allow-Methods', '*');
+        .set('Access-Control-Allow-Headers', 'access-control-allow-headers,access-control-allow-methods,access-control-allow-origin')
+        .set('Access-Control-Allow-Methods', 'OPTIONS, GET, PUT, POST, DELETE, HEAD')
+        .set('Allow','GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS');
     return this.httpClient.get(environment.baseUrlE + id, {headers: headers}).pipe( tap( res => {
        //console.log( 'Get Item Response:', res );
+       
     } ) );
   }
 }

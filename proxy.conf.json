@@ -1,7 +1,7 @@
 {
     "/api": {
       "target": "https://ecga-ef38d.firebaseapp.com/",
-      "secure": "true",
+      "secure": "false",
       "pathRewrite": {
         "^/api": ""
       },
