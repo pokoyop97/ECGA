@@ -1,8 +1,13 @@
 {
     "/api": {
-      "target": "https://ecga-d9be8.firebaseapp.com",
-      "secure": "false",
-      "changeOrigin": "true"
+      "target": "https://ecga-ef38d.firebaseapp.com/",
+      "secure": "true",
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true,
+      "headers": {"host":"https://ecga-ef38d.firebaseapp.com/"}
     }
   }
+  
   
