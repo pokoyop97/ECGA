@@ -1,0 +1,46 @@
+.card_user{
+    width: 450px;
+    height: 350px;
+    background-color: #1765be ;
+    border-radius: 25px;
+    border-color: rgb(255, 255, 255);
+}
+.card-body{
+    width:450px;
+    height:350px;
+    background-color: #1765be ;
+    border-radius: 25px;
+    border-color: rgb(255, 255, 255);
+}
+.fondo-img{
+    width:410px;
+    height:150px;
+    background-color: rgb(255, 255, 255);
+}
+.img-fluid{
+    width:150px;
+}
+.container-proyectos{
+	margin-left:0%;
+	margin-right: 0%;
+	margin-top: 0%;
+}
+.logo {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left:0%;
+  }
+  .container-crud{
+      margin-left: 78%;
+      margin-top:-5%;
+  }
+  .container-logo{
+      margin-right: 10%;
+      margin-top:-1%;
+  }
+  .back-nav{
+      background-color: #1765be ;
+  }
+  .navbar{
+
+  }

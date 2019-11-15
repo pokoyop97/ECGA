@@ -11,7 +11,8 @@ import { Observable } from "rxjs/internal/Observable";
 } )
 export class HomeComponent implements OnInit {
   public item: string;
-  public info: Observable<ProductInterface[]>;
+  public infoML: Observable<ProductInterface[]>;
+  public infoE: Observable<ProductInterface[]>;
   searchForm = new FormGroup( {
     query: new FormControl( '' )
   } );
@@ -23,10 +24,11 @@ export class HomeComponent implements OnInit {
     this.item = this.searchForm.value.query;
     if(this.item != ''){
       this.apiService.getItemML(this.item).subscribe( res => {
-        this.info = res.results;
+        this.infoML = res.results;
       });
       this.apiService.getItemE(this.item).subscribe( res => {
-        console.log(res)
+        //console.log(res.findItemsByKeywordsResponse[0].searchResult[0].item);
+        this.infoE = res.findItemsByKeywordsResponse[0].searchResult[0].item;
       });
     }else{
       alert("Ingrese un elemento para buscar")

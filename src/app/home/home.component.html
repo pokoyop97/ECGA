@@ -35,7 +35,7 @@
 <section id="users" class="mt-5 container-proyectos">
   <div class="container-fluid">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 " *ngFor="let info of info">
+        <div class="col-xs-12 col-sm-6 col-md-4 " *ngFor="let info of infoML">
           <div class="card_user">
             <div class="card" style="
             border-color: rgb(255, 255, 255);">
@@ -62,4 +62,37 @@
         </div>
       </div>
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4 " *ngFor="let info of infoE">
+            <div class="card_user">
+              <div class="card" style="
+              border-color: rgb(255, 255, 255);">
+                <div class="card-body text-center">
+                  <div class="fondo-img">
+                  <p>
+                    <img class="img-fluid" src="{{info.galleryURL}}">
+                  </p>
+                </div>
+              <div style="height: 120px ;width: 400px;">
+                  <p class="card-text" style="color: rgb(255, 255, 255);">
+                    {{info.title}}
+                  </p>
+                  <p class="card-text" style="color: rgb(255, 255, 255);">
+                      ${{info.price}}
+                    </p>
+                  </div>
+                    <div style="height: 100px;width: 410px;">
+                        <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #9448e0; border-color:#9448e0;" (click)="ViewProyecto(projects.Project_id, projects.email)" [routerLink]="['/create']" routerLinkActive="active"></button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 </section>
+
+
+ 
