@@ -1,17 +1,19 @@
 
-
 <body class="back-nav">
     <div class="navbar">
-  
         <div class="container-logo"> 
             <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png">
         </div>
         
-<div class="logo"></div>
+<div class="logo">
+  <div class="avatar" *ngIf="user.photoUrl">
+    <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+  </div>
+  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
+  </div>
   
   <div class="container-crud">
       <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
-      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
   </div>
 
 </div>
@@ -23,7 +25,7 @@
         <div><input formControlName="query" type="text" class="form-control" placeholder="Search"></div>
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary" style="background-color: #9448e0; border-color:#9448e0;">Search</button>
+        <button type="submit" class="btn btn-primary" style="background-color: #9448e0; border-color:#9448e0;" >Search</button>
       </div>
     </div>
   </form>
@@ -31,8 +33,7 @@
 </body>
 
 <button type="submit" class="btn btn-primary container-fluid" style="background-color: #9448e0; border-color:#9448e0;"  [routerLink]="['/compa']" routerLinkActive="active">Comparativa</button>
-<!-- 
------------------------------------- -->
+
 
 <section id="resultsML" class="conainer-mid">
     <div class="container">
@@ -65,7 +66,7 @@
                               <p></p>
                             </div>
                               <div style="height: 100px;width: 410px;">
-                                  <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddVSE(info.galleryURL ,info.title ,info.sellingStatus[0].currentPrice[0].__value__*19.2)"></button>
+                                  <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #9448e0; border-color:#9448e0;" (click)="OnAddVSE(info.galleryURL ,info.title ,info.sellingStatus[0].currentPrice[0].__value__*19.2)"></button>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +93,7 @@
                               </p>
                             </div>
                               <div style="height: 100px;width: 410px;">
-                                  <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddVSML(info.thumbnail, info.title, info.price, info.attributes[3].name, info.attributes[3].value_name)"></button>
+                                  <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #9448e0; border-color:#9448e0;" (click)="OnAddVSML(info.thumbnail, info.title, info.price, info.attributes[3].name, info.attributes[3].value_name)"></button>
                                 </div>
                             </div>
                         </div>
@@ -104,6 +105,3 @@
     </div>
     </section>
     
-
-<!-- 
--------------------------------- -->

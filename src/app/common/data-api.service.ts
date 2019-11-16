@@ -3,20 +3,27 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { UserInterface } from '../models/user';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+import { ProductInterface } from '../models/products';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataApiService {
 
-  private itemsCollection: AngularFirestoreCollection<any>;
-  constructor(private afs: AngularFirestore) { 
-    this.UserCollection = afs.collection<UserInterface>('users');
+  
+  public UserCollection: AngularFirestoreCollection<UserInterface>;
+  public users: Observable<UserInterface[]>;
+  public userDoc: AngularFirestoreDocument<UserInterface>;
+  public productsCollection: AngularFirestoreCollection<ProductInterface>;
+  public products: Observable<ProductInterface[]>;
+  public itemsCollection: AngularFirestoreCollection<any>;
+  
+  constructor(private afs: AngularFirestore) { /* 
     this.users = this.UserCollection.valueChanges();
+    this.products = this.productsCollection.valueChanges();  */
+    this.productsCollection = afs.collection<ProductInterface>('products');
+    this.UserCollection = afs.collection<UserInterface>('users');
   }
-  private UserCollection: AngularFirestoreCollection<UserInterface>;
-  private users: Observable<UserInterface[]>;
-  private userDoc: AngularFirestoreDocument<UserInterface>;
 
   addUser(user: UserInterface): void {
     this.UserCollection.add(user);
@@ -34,5 +41,17 @@ export class DataApiService {
   obtenerColeccionDeDocumento(nombreColeccion:string,idDocumento:string){
     this.itemsCollection = this.afs.collection<any>(`${nombreColeccion}/${idDocumento}`);
     return this.itemsCollection.snapshotChanges();
+  }
+
+  public getAllproducts(tipo:string,id: string){
+    this.productsCollection = this.afs.collection<ProductInterface>(tipo+`/`+id+`/`+id);
+    return this.products = this.productsCollection.snapshotChanges()
+    .pipe(map(changes=>{
+      return changes.map( action=>{
+      const data = action.payload.doc.data() as ProductInterface;
+      data.Product_id = action.payload.doc.id;
+      return data;
+    });
+  }));
   }
 }

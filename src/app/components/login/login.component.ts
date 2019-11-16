@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   constructor( private afAuth: AngularFireAuth, private router: Router, private authService: AuthService ) { }
 
   ngOnInit() {
+    
   }
   onLogin(email: string, password: string): void {
     this.authService.loginEmailUser(email, password)
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.logoutUser();
   }
   onLoginRedirect(): void {
-    this.router.navigate(['/refi']);
+    this.router.navigate(['/logueado']);
   }
 
   register():void{

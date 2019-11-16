@@ -1,12 +1,12 @@
 {
     "/api": {
-      "target": "https://ecga-ef38d.firebaseapp.com/",
-      "secure": "false",
+      "target": "localhost:4200",
+      "secure": true,
       "pathRewrite": {
         "^/api": ""
       },
       "changeOrigin": true,
-      "headers": {"host":"https://ecga-ef38d.firebaseapp.com/"}
+      "headers": {"host":"svcs.ebay.com"}
     }
   }
   

@@ -1,0 +1,55 @@
+
+<body class="back-nav">
+  <div class="navbar">
+
+      <div class="container-logo"> 
+          <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png" [routerLink]="['']" routerLinkActive="active">
+          <h3 style="color: rgb(255, 255, 255); margin-left:25%;">Inicio</h3>
+      </div>
+      
+<div class="logo" style="text-align:center">
+  
+  
+</div>
+<div class="container-crud">
+    <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
+    <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+</div>
+
+</div>
+</body>
+
+<section id="users" class="mt-5 container-proyectos">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-4 " *ngFor="let info of projects">
+            <div class="card_user" data-aos="fade-down" data-aos-duration="2000">
+              <div class="card" style="border-color: rgb(255, 255, 255);">
+                <div class="card-body text-center">
+                  <div class="fondo-img">
+                    <a>
+                      <img class="img-fluid" src="{{info.img}}">
+                    </a>
+                </div>
+                <div style="height: 180px ;width: 400px;">
+                    <p class="card-text" style="color: rgb(255, 255, 255);">
+                    {{info.titulo}}
+                    </p>
+                    <p class="card-text" style="color: rgb(255, 255, 255);">
+                        ${{info.precio}} MXN
+                    </p>
+                    <p class="card-text" style="color: rgb(255, 255, 255);">
+                      {{info.model}}
+                    </p>
+                </div>
+                    <div style="height: 100px;width: 410px;">
+                            <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(info.img, info.titulo, info.precio, info.model, info.Product_id)" ></button>
+                            <button pButton type="button" label="Eliminar del comparador" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;margin-left:20px;" (click)="OnDelVS(info.Product_id)"></button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+        </div>
+</section>

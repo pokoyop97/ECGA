@@ -18,3 +18,36 @@
 
 </div>
 </body>
+<section>
+    <div *ngFor="let info of projects">
+    <div class="background">
+        <div class="container">
+            <div class="screen">
+            <div class="screen-body">
+                <div class="screen-body-item left">
+                <div class="app-title">
+                    <img src="{{info.img}}" width="200" style="border-radius: 15px; border:1px solid #9448e0;box-shadow:0 0 0 1px #9448e0;">
+                </div>
+                </div>
+                <div class="screen-body-item">
+                <div class="app-form">
+                    <div class="app-title">
+                        <span>{{info.titulo}}</span>
+                    </div>
+                    <div class="app-title" style="color: white;">
+                        <span>{{info.modelo}}</span>
+                    </div>
+                    <div class="app-title" style="color: white;">
+                        <span>${{info.precio}} MXN</span>
+                    </div>
+                    <div class="app-form-group buttons">
+                            <button class="app-form-button" (click)="OnDelCart(info.Product_id)">Eliminar del carrito</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>

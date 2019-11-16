@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   baseUrlML: " https://api.mercadolibre.com/",
-  baseUrlE: "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=dylanlow-ECGA2314-PRD-538876c40-e0a31d8c&RESPONSE-DATA-FORMAT=xml&keywords=",
+  baseUrlE: "https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords&SECURITY-APPNAME=dylanlow-ECGA2314-PRD-538876c40-e0a31d8c&RESPONSE-DATA-FORMAT=JSON&keywords=",
   firebase : {
     apiKey: "AIzaSyCQMPU_N0NBJZnl3xAe41tyE1ERn1n8uuU",
     authDomain: "ecga-ef38d.firebaseapp.com",

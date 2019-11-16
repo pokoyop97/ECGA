@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ApiService } from '../common/api.service';
-import { AuthService } from '../common/auth.service';
+import { ApiService } from '../../common/api.service';
+import { AuthService } from '../../common/auth.service';
 import { Observable } from "rxjs/internal/Observable";
-import { UserInterface } from '../models/user'
+import { UserInterface } from '../../models/user'
 
 import {HttpClient} from '@angular/common/http';
 
@@ -12,12 +12,12 @@ import {HttpClient} from '@angular/common/http';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { AngularFirestore } from "@angular/fire/firestore";
-@Component( {
-  selector: 'home',
-  templateUrl: './home.component.html',
-  styleUrls: [ './home.component.scss' ]
-} )
-export class HomeComponent implements OnInit {
+@Component({
+  selector: 'app-principal',
+  templateUrl: './principal.component.html',
+  styleUrls: ['./principal.component.scss']
+})
+export class PrincipalComponent implements OnInit {
   public item: string;
   public infoML: Observable<ProductInterface[]>;
   public infoE: Observable<ProductInterface[]>;
@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
     .subscribe( data => {
       this.ipAddress = data.ip
     })
+    
   }
   onLogout() {
     this.authService.logoutUser();
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
   }
 
   OnAddVSML(imagen:string, titulo:string, precio:string, modeloN:string, modelo:string){
-        alert("Se agrego al comparador")
+    alert("Se agrego al comparador")
         let newProject = {
           titulo: titulo,
           precio: precio,
@@ -82,6 +83,7 @@ export class HomeComponent implements OnInit {
       }
 
       OnAddVSE(imagen:string, titulo:string, precio:string, modeloN:string){
+        console.log(imagen, titulo, precio, modeloN)
         alert("Se agrego al comparador")
             let newProject = {
               titulo: titulo,

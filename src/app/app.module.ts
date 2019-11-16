@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule  } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +26,12 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+
+
+import { DeviceDetectorModule } from 'ngx-device-detector';
+import { ComparacionesComponent } from './components/comparaciones/comparaciones.component';
+import { PruebasComponent } from './components/pruebas/pruebas.component';
 
 @NgModule( {
   imports: [
@@ -42,6 +48,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     ReactiveFormsModule,
     AppRoutingModule,
     ButtonModule,  
+    DeviceDetectorModule.forRoot(),
   ],
   declarations: [
     AppComponent,
@@ -49,10 +56,13 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     LoginComponent,
     RegistroComponent,
     CarritoComponent,
+    PrincipalComponent,
+    ComparacionesComponent,
+    PruebasComponent,
   ],
   providers: [
     AngularFireAuth, 
-    AngularFirestore,{provide: StorageBucket, useValue: "gs://ecga-d9be8.appspot.com/"},
+    AngularFirestore,{provide: StorageBucket, useValue: "gs://ecga-ef38d.appspot.com/"},
     ApiService,
   ],
   bootstrap: [
