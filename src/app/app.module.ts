@@ -26,7 +26,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { PrincipalComponent } from './components/principal/principal.component';
 
 
 import { DeviceDetectorModule } from 'ngx-device-detector';
@@ -56,7 +55,6 @@ import { PruebasComponent } from './components/pruebas/pruebas.component';
     LoginComponent,
     RegistroComponent,
     CarritoComponent,
-    PrincipalComponent,
     ComparacionesComponent,
     PruebasComponent,
   ],

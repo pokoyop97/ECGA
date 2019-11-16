@@ -1,13 +1,16 @@
+$color-1st:#ecaf81;
+$color-2nd: #60b8d4;
+
 .card_user{
     width: 450px;
-    height: 400px;
+    height: 350px;
     background-color: #9448e0 ;
     border-radius: 25px;
     border-color: rgb(255, 255, 255);
 }
 .card-body{
     width:450px;
-    height:400px;
+    height:350px;
     background-color: #9448e0 ;
     border-radius: 25px;
     border-color: rgb(255, 255, 255);
@@ -28,7 +31,7 @@
 .logo {
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-left:0%;
+    padding-right:45%;
   }
   .container-crud{
       margin-left: 78%;
@@ -45,4 +48,23 @@
 }
   .navbar{
 
+  }
+
+  .avatar{
+    padding:2em 0.5em;
+    text-align:center;
+    width: 150px;
+    height: 150px;
+    img{
+        width:100px;
+        border-radius:50%;
+        overflow:hidden;
+    }
+}
+.container-mid{
+    height: 150px;
+    width: 60%;
+  }
+  .container-mid-inv{
+      
   }

@@ -7,24 +7,44 @@ import { DataApiService } from 'src/app/common/data-api.service';
 import { AuthService } from 'src/app/common/auth.service';
 import { ProductInterface } from 'src/app/home/home.component';
 import { HttpClient } from '@angular/common/http';
+import { UserInterface } from '../../models/user'
 
 @Component({
   selector: 'app-comparaciones',
   templateUrl: './comparaciones.component.html',
-  styleUrls: ['./comparaciones.component.css']
+  styleUrls: ['./comparaciones.component.scss']
 })
 export class ComparacionesComponent implements OnInit {
-
+  user: UserInterface = {
+    name: '',
+    email: '',
+    photoUrl: '',
+  };
+  
+  ipAddress:any;
+  logged:boolean;
   private projects: any[];
   constructor(
+    private router: Router ,
     private http: HttpClient,
     private dataApi: DataApiService,
     private afs: AngularFirestore,
-    ) { }
+    private authService:AuthService) { }
 
     
-  ipAddress:any;
   ngOnInit() {
+    this.authService.isAuth().subscribe(user => {
+      if (user) {
+        this.user.name = user.displayName;
+        this.user.email = user.email;
+        this.user.photoUrl = user.photoURL;
+        this.user.User_id = user.uid;
+        this.logged=true;
+      }else{
+        this.logged = false;
+      }
+    })
+
     this.http.get<{ip:string}>('https://jsonip.com')
     .subscribe( data => {
       this.ipAddress = data.ip
@@ -58,6 +78,10 @@ export class ComparacionesComponent implements OnInit {
     }
     this.afs.doc(`cart/${this.ipAddress}`).collection(this.ipAddress).add(newProject)
     this.afs.doc(`vs/${this.ipAddress}/`).collection(`${this.ipAddress}`).doc(docID).delete().then(() => {}).catch(err => {console.log(err);});
+  }
+  onLogout() {
+    this.authService.logoutUser();
+    this.router.navigate(['/home']);
   }
 }
 

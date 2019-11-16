@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     this.authService.logoutUser();
   }
   onLoginRedirect(): void {
-    this.router.navigate(['/logueado']);
+    this.router.navigate(['/home']);
   }
 
   register():void{

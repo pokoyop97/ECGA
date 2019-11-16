@@ -7,11 +7,22 @@
             <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png">
         </div>
         
-<div class="logo"></div>
+<div class="logo" *ngIf="logged">
+  <div class="avatar" *ngIf="user.photoUrl">
+    <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+  </div>
+  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
   
-  <div class="container-crud">
+</div>  
+
+  <div class="container-crud" >
       <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
-      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+      <div *ngIf="logged; then thenBlock else elseBlock"></div>
+      <ng-template #elseBlock>
+        <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+      </ng-template>
+      <ng-template #thenBlock>
+      </ng-template>
   </div>
 
 </div>

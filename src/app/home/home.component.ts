@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
   }
 
   ipAddress:any;
+  logged:boolean;
   ngOnInit() {
     this.authService.isAuth().subscribe(user => {
       if (user) {
@@ -57,6 +58,9 @@ export class HomeComponent implements OnInit {
         this.user.email = user.email;
         this.user.photoUrl = user.photoURL;
         this.user.User_id = user.uid;
+        this.logged=true;
+      }else{
+        this.logged = false;
       }
     })
     
