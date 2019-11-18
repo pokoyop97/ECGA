@@ -46,6 +46,7 @@ export class ApiService {
         
         " --header Access-Control-Allow-Methods: GET, PUT, POST, DELETE, HEAD, OPTIONS --header Access-Control-Allow-Origin: *  --header Content-Encoding: gzip  --header Content-Type: text/plain;charset=UTF-8  --header Server: Apache-Coyote/1.1  --header X-EBAY-SOA-LOCALE-LIST: en-US_US;es-ES,es;q=0.9,en;q=0.8,ru;q=0.7  --header X-EBAY-SOA-OPERATION-NAME: findItemsByKeywords  --header X-EBAY-SOA-REQUEST-ID: 16e70003-08b0-a9cb-2aa6-7ea6fff81bd4"
         */
+       console.log(environment.baseUrlE + id)
     return this.httpClient.get(environment.baseUrlE + id ).pipe( tap( res => {
        //console.log( 'Get Item Response:', res );
     } ) );

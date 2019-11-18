@@ -6,19 +6,19 @@ $color-2nd: #60b8d4;
     height: 350px;
     background-color: #9448e0 ;
     border-radius: 25px;
-    border-color: rgb(255, 255, 255);
+    border-color: #3e3e3f;
 }
 .card-body{
     width:450px;
     height:350px;
     background-color: #9448e0 ;
     border-radius: 25px;
-    border-color: rgb(255, 255, 255);
+    border-color: #3e3e3f;
 }
 .fondo-img{
     width:410px;
     height:150px;
-    background-color: rgb(255, 255, 255);
+    background-color: #3e3e3f;
 }
 .img-fluid{
     width:150px;
@@ -67,4 +67,7 @@ $color-2nd: #60b8d4;
   }
   .container-mid-inv{
       
+  }
+  .back{
+    min-height: 76.5vh;
   }

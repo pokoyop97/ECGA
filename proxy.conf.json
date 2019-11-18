@@ -1,13 +1,9 @@
 {
-    "/api": {
-      "target": "localhost:4200",
-      "secure": true,
-      "pathRewrite": {
-        "^/api": ""
-      },
-      "changeOrigin": true,
-      "headers": {"host":"svcs.ebay.com"}
+  "/services/search/FindingService/*": {
+      "target": "https://svcs.ebay.com",
+      "secure": false,
+      "changeOrigin": true
     }
-  }
+}
   
   

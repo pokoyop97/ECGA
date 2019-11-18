@@ -32,6 +32,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ComparacionesComponent } from './components/comparaciones/comparaciones.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
 
+import { NgxPayPalModule } from 'ngx-paypal';
 @NgModule( {
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -48,6 +49,7 @@ import { PruebasComponent } from './components/pruebas/pruebas.component';
     AppRoutingModule,
     ButtonModule,  
     DeviceDetectorModule.forRoot(),
+    NgxPayPalModule,
   ],
   declarations: [
     AppComponent,

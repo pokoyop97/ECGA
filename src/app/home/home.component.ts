@@ -12,15 +12,19 @@ import {HttpClient} from '@angular/common/http';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { AngularFirestore } from "@angular/fire/firestore";
+
 @Component( {
   selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: [ './home.component.scss' ]
 } )
+
 export class HomeComponent implements OnInit {
   public item: string;
   public infoML: Observable<ProductInterface[]>;
   public infoE: Observable<ProductInterface[]>;
+  ipAddress:any;
+  logged:boolean;
   searchForm = new FormGroup( {
     query: new FormControl( '' )
   } );
@@ -48,9 +52,8 @@ export class HomeComponent implements OnInit {
       alert("Ingrese un elemento para buscar")
     }
   }
-
-  ipAddress:any;
-  logged:boolean;
+  
+  
   ngOnInit() {
     this.authService.isAuth().subscribe(user => {
       if (user) {
@@ -75,25 +78,26 @@ export class HomeComponent implements OnInit {
   }
 
   OnAddVSML(imagen:string, titulo:string, precio:string, modeloN:string, modelo:string){
-        alert("Se agrego al comparador")
-        let newProject = {
-          titulo: titulo,
-          precio: precio,
-          img: imagen,
-          model: modeloN + " : " + modelo
-        }
-        this.afs.doc(`vs/${this.ipAddress}`).collection(this.ipAddress).add(newProject);
-      }
+    alert("Se agrego al comparador")
+    let newProject = {
+      titulo: titulo,
+      precio: precio,
+      img: imagen,
+      model: modeloN + " : " + modelo
+    }
+    this.afs.doc(`vs/${this.ipAddress}`).collection(this.ipAddress).add(newProject);
+  }
 
-      OnAddVSE(imagen:string, titulo:string, precio:string, modeloN:string){
-        alert("Se agrego al comparador")
-            let newProject = {
-              titulo: titulo,
-              precio: precio,
-              img: imagen,
-            }
-            this.afs.doc(`vs/${this.ipAddress}`).collection(this.ipAddress).add(newProject);
-          }
+  OnAddVSE(imagen:string, titulo:string, precio:string, modeloN:string){
+    alert("Se agrego al comparador")
+    let newProject = {
+      titulo: titulo,
+      precio: precio,
+      img: imagen,
+    }
+    this.afs.doc(`vs/${this.ipAddress}`).collection(this.ipAddress).add(newProject);
+  }
+
 }
 export interface ProductInterface {
   name?: string;

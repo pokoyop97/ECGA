@@ -3,22 +3,22 @@ $color-2nd: #60b8d4;
 
 .card_user{
     width: 450px;
-    height: 350px;
+    height: 400px;
     background-color: #9448e0 ;
     border-radius: 25px;
-    border-color: rgb(255, 255, 255);
+    border-color: #3e3e3f;
 }
 .card-body{
     width:450px;
-    height:350px;
+    height:400px;
     background-color: #9448e0 ;
     border-radius: 25px;
-    border-color: rgb(255, 255, 255);
+    border-color: #3e3e3f;;
 }
 .fondo-img{
     width:410px;
     height:150px;
-    background-color: rgb(255, 255, 255);
+    background-color: #3e3e3f;;
 }
 .img-fluid{
     width:150px;
@@ -31,7 +31,7 @@ $color-2nd: #60b8d4;
 .logo {
     padding-top: 25px;
     padding-bottom: 25px;
-    padding-right:45%;
+    padding-left:0%;
   }
   .container-crud{
       margin-left: 78%;
@@ -39,7 +39,7 @@ $color-2nd: #60b8d4;
   }
   .container-logo{
       margin-right: 10%;
-      margin-top:-1%;
+      margin-top:   0%
   }
   .back-nav{
     background: linear-gradient(to right, #9448e0 0%, #33C6FF 100%);
@@ -68,3 +68,8 @@ $color-2nd: #60b8d4;
   .container-mid-inv{
       
   }
+  .back{
+    min-height: 76.5vh;
+  }
+
+  

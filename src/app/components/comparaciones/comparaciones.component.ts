@@ -50,7 +50,6 @@ export class ComparacionesComponent implements OnInit {
       this.ipAddress = data.ip
       this.dataApi.getAllproducts("vs",this.ipAddress).subscribe(projects => {
         this.projects = projects;
-        console.log(this.projects)
       });
     }) 
   }

@@ -1,27 +1,62 @@
 
-<body class="back-nav">
+<body >
     <div class="navbar">
-  
         <div class="container-logo"> 
             <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png" [routerLink]="['']" routerLinkActive="active">
             <h3 style="color: rgb(255, 255, 255); margin-left:25%;">Inicio</h3>
         </div>
-       
-        <div class="logo" *ngIf="logged">
-                <div class="avatar" *ngIf="user.photoUrl">
-                  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
-                </div>
-                <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
-                
-              </div>  
-  <div class="container-crud">
-      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
-      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
-  </div>
-
+    <div class="logo" *ngIf="logged">
+            <div class="avatar" *ngIf="user.photoUrl">
+                <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+            </div>
+            <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
+            
+            </div>  
+    <div class="container-crud">
+        <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
+        <div *ngIf="logged; then thenBlock else elseBlock"></div>
+        <ng-template #elseBlock>
+            <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+        </ng-template>
+        <ng-template #thenBlock>
+        </ng-template>
+        </div>
 </div>
 </body>
-<section>
+
+<div class="back" style="background-color: #3e3e3f;">
+    <div class="border-paypal">
+        <div class="container-paypal"> 
+            <div class="app-title">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div><span>Subtotal:</span></div>
+                        <div><span>Envio:</span></div>
+                        <div><span>Articulos: </span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div><span>${{total}}</span></div>
+                        <div><span>Gratis</span></div>
+                        <div><span>{{contador}}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-title">
+                    <span>-------------------</span>
+            </div>
+            <div class="app-title">
+                <div class="row">
+                    <div class="col-md-6">
+                            <div><span>Total:</span></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div><span>${{total}}</span></div>
+                    </div>
+                </div>
+            </div>
+            <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        </div>
+    </div>
     <div *ngFor="let info of projects">
     <div class="background">
         <div class="container">
@@ -53,4 +88,4 @@
         </div>
     </div>
 </div>
-</section>
+</div>

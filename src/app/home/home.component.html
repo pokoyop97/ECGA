@@ -46,6 +46,8 @@
 ------------------------------------ -->
 
 <section id="resultsML" class="conainer-mid">
+  
+<div class="back" style="background-color: #3e3e3f;">
     <div class="container">
       <div class="container-fluid">
           <div class="row">
@@ -57,8 +59,8 @@
               </div>
               <div class="col-md-6">
                   <div *ngFor="let info of infoE" >
-                      <div class="card_user" data-aos="fade-down" data-aos-duration="3000">
-                        <div class="card" style="border-color: rgb(255, 255, 255);" data-aos="fade-down">
+                      <div class="card_user" data-aos="fade-right" data-aos-duration="3000">
+                        <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
                           <div class="card-body text-center">
                             <div class="fondo-img">
 
@@ -86,8 +88,8 @@
 <!-- ------------------------------------------ -->
               <div class="col-md-6" >
                   <div *ngFor="let info of infoML">
-                      <div class="card_user" data-aos="fade-down" data-aos-duration="2000">
-                        <div class="card" style="border-color: rgb(255, 255, 255);">
+                      <div class="card_user" data-aos="fade-left" data-aos-duration="2000">
+                        <div class="card" style="border-color: #3e3e3f;   border-radius: 25px;">
                           <div class="card-body text-center">
                             <div class="fondo-img">
                             <a href="{{info.permalink}}">
@@ -113,6 +115,7 @@
           </div>
       </div>
     </div>
+</div>
     </section>
     
 
