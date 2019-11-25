@@ -1,0 +1,283 @@
+
+
+<body class="back-nav">
+    <div class="navbar">
+      <div class="container-logo"> 
+        <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png" [routerLink]="['']" routerLinkActive="active">
+        <h3 style="color: rgb(255, 255, 255); margin-left:25%;">Inicio</h3>
+    </div>
+        
+  <div class="logo" *ngIf="logged">
+  <div class="avatar" *ngIf="user.photoUrl">
+    <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+  </div>
+  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
+  
+  </div>  
+  
+  <div class="container-crud" >
+      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
+      <div *ngIf="logged; then thenBlock else elseBlock"></div>
+      <ng-template #elseBlock>
+        <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+      </ng-template>
+      <ng-template #thenBlock>
+      </ng-template>
+  </div>
+  
+  </div>
+  
+  
+  </body>
+  
+  <!-- 
+  ------
+  <div class="container-mid">
+      <img width="150"style="padding:20px; margin-left:25%;" src="../assets/ebay logos/developersprogrammember_vert.png">
+  </div>
+  <div class="container-mid-inv">
+      <img width="200"style="padding:20px; margin-left:20%; margin-top:10%;" src="../assets/ebay logos/mercado-libre.jpg">
+  </div>
+  
+  
+  ------------------------------ -->
+  
+<section id="resultsML" class="conainer-mid">
+  
+    <div class="back" style="background-color: #3e3e3f;">
+        <div class="container">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="container-mid">
+                      <img width="200"style="padding:20px; margin-left:25%;margin-top:2%;" src="../assets/ebay logos/mercado-libre.jpg">
+                  </div>
+                  <div class="container-mid-inv">
+                      <img width="150"style="padding:20px; margin-left:20%; " src="../assets/ebay logos/developersprogrammember_vert.png">
+                  <button type="submit" class="btn btn-primary container-fluid" style="background-color: #9448e0; border-color:#9448e0;" (click)="onSubmit()">Comparativa</button>
+
+                  </div>
+
+
+                  <div class="col-md-6" >
+                      <div *ngFor="let info of projects;">
+                          <div class="card_user" data-aos="fade-left" data-aos-duration="2000" >
+                            <div class="card" style="border-color: #3e3e3f;   border-radius: 25px;">
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                  <img class="img-fluid" src="{{info.img}}">
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{info.titulo}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{info.precio}} MXN
+                                  </p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(info.img, info.titulo, info.precio, info.model, info.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+        </div>
+                  </div>
+                  <!-- ------------------------------------------ -->
+
+                  <div class="col-md-6">
+                      <div *ngFor="let infoa of infoProcess; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infoa.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infoa.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infoa.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infoa.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infoa.img, infoa.titulo, infoa.precio, infoa.model, infoa.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div *ngFor="let infob of infoMotherboard; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infob.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infob.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infob.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infob.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infob.img, infob.titulo, infob.precio, infob.model, infob.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div *ngFor="let infoc of infoRam; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infoc.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infoc.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infoc.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infoc.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infoc.img, infoc.titulo, infoc.precio, infoc.model, infoc.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div *ngFor="let infoc of infoHDD; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infoc.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infoc.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infoc.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infoc.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infoc.img, infoc.titulo, infoc.precio, infoc.model, infoc.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div *ngFor="let infod of infoGddr; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infod.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infod.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infod.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infod.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infod.img, infod.titulo, infod.precio, infod.model, infod.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div *ngFor="let infoe of infoCase; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infoe.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infoe.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infoe.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infoe.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infoe.img, infoe.titulo, infoe.precio, infoe.model, infoe.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div *ngFor="let infof of infoPower; let i = index" >
+                          <div class="card_user" data-aos="fade-right" data-aos-duration="3000" *ngIf="i<1">
+                            <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                              <div class="card-body text-center">
+                                <div class="fondo-img">
+                                    <a href="{{infof.viewItemURL[0]}}">
+                                        <img class="img-fluid" src="{{infof.galleryURL}}">
+                                      </a>
+                              </div>
+                            <div style="height: 120px ;width: 400px;">
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                  {{infof.title}}
+                                </p>
+                                <p class="card-text" style="color: rgb(255, 255, 255);">
+                                    ${{infof.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                                  </p>
+                                  <p></p>
+                                </div>
+                                  <div style="height: 100px;width: 410px;">
+                                      <button pButton type="button" label="Agregar al carrito" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddCart(infof.img, infof.titulo, infof.precio, infof.model, infof.Product_id)" ></button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                  </div>
+    <!-- ------------------------------------------ -->
+
+              </div>
+          </div>
+        </div>
+    </div>
+        </section>
+        

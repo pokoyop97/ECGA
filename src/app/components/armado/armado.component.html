@@ -1,0 +1,171 @@
+
+
+<body class="back-nav">
+  <div class="navbar">
+    <div class="container-logo"> 
+      <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png" [routerLink]="['']" routerLinkActive="active">
+      <h3 style="color: rgb(255, 255, 255); margin-left:25%;">Inicio</h3>
+  </div>
+      
+<div class="logo" *ngIf="logged">
+<div class="avatar" *ngIf="user.photoUrl">
+  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+</div>
+<li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
+
+</div>  
+
+<div class="container-crud" >
+    <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
+    <div *ngIf="logged; then thenBlock else elseBlock"></div>
+    <ng-template #elseBlock>
+      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+    </ng-template>
+    <ng-template #thenBlock>
+    </ng-template>
+</div>
+
+</div>
+
+
+</body>
+
+<!-- 
+------
+<div class="container-mid">
+    <img width="150"style="padding:20px; margin-left:25%;" src="../assets/ebay logos/developersprogrammember_vert.png">
+</div>
+<div class="container-mid-inv">
+    <img width="200"style="padding:20px; margin-left:20%; margin-top:10%;" src="../assets/ebay logos/mercado-libre.jpg">
+</div>
+
+
+------------------------------ -->
+
+<section id="resultsML" class="conainer-mid">
+
+<div class="back" style="background-color: #3e3e3f;">
+  <div class="container">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2 container" style="margin-left: -15%;">
+              <div class="container-categorias " [routerLink]="['/armado']" routerLinkActive="active"  >
+                <div class="container-inside">
+                  <div style="color: white;">Marca del Procesador</div>
+                </div>
+              </div>
+              <div class="container-items">
+                <div class="row">
+                  <div class="col-md-6">
+                      <img width="150"style="padding:20px;margin-top:50%;" src="../assets/intel.png"[routerLink]="['/procesador/intel']" routerLinkActive="active" >
+                  </div>
+                  <div class="col-md-6">
+                      <img width="150"style="padding:20px;margin-top:60%;" src="../assets/amd.png" [routerLink]="['/procesador/amd']" routerLinkActive="active">
+                  </div>
+                </div>
+              </div>
+              <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                <div class="container-inside-list">
+                  <div style="color: white;">Procesador</div>
+                </div>
+              </div>
+              <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                  <div class="container-inside-list">
+                    <div style="color: white;">Tarjeta Madre</div>
+                  </div>
+                </div>
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                  <div class="container-inside-list">
+                    <div style="color: white;">Memoria Ram</div>
+                  </div>
+                </div>
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                  <div class="container-inside-list">
+                    <div style="color: white;">Almacenamiento</div>
+                  </div>
+                </div>
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                    <div class="container-inside-list">
+                      <div style="color: white;">Tarjeta Grafica</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                    <div class="container-inside-list">
+                      <div style="color: white;">Gabinete</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                    <div class="container-inside-list">
+                      <div style="color: white;">Fuente de Poder</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                      <div class="container-inside-list">
+                        <div style="color: white;">Resumen</div>
+                      </div>
+                    </div>
+          </div>
+            <div class="col-md-5" >
+                <div *ngFor="let info of infoE" >
+                    <div class="card_user" data-aos="fade-right" data-aos-duration="3000">
+                      <div class="card"  style="border-color: #3e3e3f;   border-radius: 25px;" >
+                        <div class="card-body text-center">
+                          <div class="fondo-img">
+
+                              <a href="{{info.viewItemURL[0]}}">
+                                  <img class="img-fluid" src="{{info.galleryURL}}">
+                                </a>
+                        </div>
+                      <div style="height: 120px ;width: 400px;">
+                          <p class="card-text" style="color: rgb(255, 255, 255);">
+                            {{info.title}}
+                          </p>
+                          <p class="card-text" style="color: rgb(255, 255, 255);">
+                              ${{info.sellingStatus[0].currentPrice[0].__value__*19.2}} MXN
+                            </p>
+                            <p></p>
+                          </div>
+                            <div style="height: 100px;width: 410px;">
+                                <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddVSE(info.galleryURL ,info.title ,info.sellingStatus[0].currentPrice[0].__value__*19.2)"></button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+<!-- ------------------------------------------ -->
+            <div class="col-md-5" >
+                <div *ngFor="let info of infoML">
+                    <div class="card_user" data-aos="fade-left" data-aos-duration="2000">
+                      <div class="card" style="border-color: #3e3e3f;   border-radius: 25px;">
+                        <div class="card-body text-center">
+                          <div class="fondo-img">
+                          <a href="{{info.permalink}}">
+                            <img class="img-fluid" src="{{info.thumbnail}}">
+                          </a>
+                        </div>
+                      <div style="height: 120px ;width: 400px;">
+                          <p class="card-text" style="color: rgb(255, 255, 255);">
+                            {{info.title}}
+                          </p>
+                          <p class="card-text" style="color: rgb(255, 255, 255);">
+                              ${{info.price}} MXN
+                            </p>
+                          </div>
+                            <div style="height: 100px;width: 410px;">
+                                <button pButton type="button" label="Comparar" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddVSML(info.thumbnail, info.title, info.price, info.attributes[3].name, info.attributes[3].value_name)"></button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+  </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+  </section>
+  
+
+<!-- 
+-------------------------------- -->

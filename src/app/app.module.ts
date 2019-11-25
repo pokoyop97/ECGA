@@ -30,9 +30,17 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 
 import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ComparacionesComponent } from './components/comparaciones/comparaciones.component';
-import { PruebasComponent } from './components/pruebas/pruebas.component';
 
 import { NgxPayPalModule } from 'ngx-paypal';
+import { ArmadoComponent } from './components/armado/armado.component';
+import { ProcesadorComponent } from './components/armado/procesador/procesador.component';
+import { MotherboardComponent } from './components/armado/motherboard/motherboard.component';
+import { RamComponent } from './components/armado/ram/ram.component';
+import { HddComponent } from './components/armado/hdd/hdd.component';
+import { GddrComponent } from './components/armado/gddr/gddr.component';
+import { CaseComponent } from './components/armado/case/case.component';
+import { PowerComponent } from './components/armado/power/power.component';
+import { ResumenComponent } from './components/armado/resumen/resumen.component';
 @NgModule( {
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -58,7 +66,15 @@ import { NgxPayPalModule } from 'ngx-paypal';
     RegistroComponent,
     CarritoComponent,
     ComparacionesComponent,
-    PruebasComponent,
+    ArmadoComponent,
+    ProcesadorComponent,
+    MotherboardComponent,
+    RamComponent,
+    HddComponent,
+    GddrComponent,
+    CaseComponent,
+    PowerComponent,
+    ResumenComponent,
   ],
   providers: [
     AngularFireAuth, 

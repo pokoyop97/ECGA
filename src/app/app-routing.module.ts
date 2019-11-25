@@ -5,7 +5,15 @@ import { RegistroComponent } from './components/registro/registro.component'
 import { HomeComponent } from './home/home.component';
 import { CarritoComponent } from './components/carrito/carrito.component'
 import { ComparacionesComponent } from './components/comparaciones/comparaciones.component'
-import { PruebasComponent } from './components/pruebas/pruebas.component';
+import { ArmadoComponent } from './components/armado/armado.component';
+import { ProcesadorComponent } from './components/armado/procesador/procesador.component';
+import { MotherboardComponent } from './components/armado/motherboard/motherboard.component';
+import { RamComponent } from './components/armado/ram/ram.component';
+import { HddComponent } from './components/armado/hdd/hdd.component';
+import { GddrComponent } from './components/armado/gddr/gddr.component';
+import { CaseComponent } from './components/armado/case/case.component';
+import { PowerComponent } from './components/armado/power/power.component';
+import { ResumenComponent } from './components/armado/resumen/resumen.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch:'full'},
@@ -14,7 +22,16 @@ const routes: Routes = [
     {path: 'registro', component: RegistroComponent, pathMatch: 'full', },
     {path: 'cart', component: CarritoComponent, pathMatch:'full'},
     {path: 'compa', component: ComparacionesComponent, pathMatch:'full'},
-    {path: 'pruebas', component: PruebasComponent, pathMatch:'full'},
+    {path: 'armado', component: ArmadoComponent, pathMatch:'full'},
+    {path: 'procesador/:marca', component: ProcesadorComponent},
+    {path: 'motherboard/:modelo',component:MotherboardComponent},
+    {path: 'ram',component:RamComponent},
+    {path: 'hdd',component:HddComponent},
+    {path: 'gddr',component:GddrComponent},
+    {path: 'case',component:CaseComponent},
+    {path: 'power',component:PowerComponent},
+    {path: 'resumen',component:ResumenComponent}
+    
 ];
 
 @NgModule({

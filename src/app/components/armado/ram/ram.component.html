@@ -1,0 +1,162 @@
+
+
+<body class="back-nav">
+    <div class="navbar">
+      <div class="container-logo"> 
+        <img width="150"style="padding:20px; margin-bottom:-10%;" src="../assets/ebay logos/ecga.png" [routerLink]="['']" routerLinkActive="active">
+        <h3 style="color: rgb(255, 255, 255); margin-left:25%;">Inicio</h3>
+    </div>
+        
+  <div class="logo" *ngIf="logged">
+  <div class="avatar" *ngIf="user.photoUrl">
+    <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><img [src]="user.photoUrl" /></li>
+  </div>
+  <li class="icon-dashboard btn" (click)="onLogout()" [routerLink]="['/home']" routerLinkActive="active"><span style="color: rgb(255, 255, 255);margin-bottom:-15%;margin-left:23%;">Desconectar</span></li>
+  
+  </div>  
+  
+  <div class="container-crud" >
+      <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-shopping-cart fa-w-20 fa-2x" [routerLink]="['/cart']" routerLinkActive="active"></i></a>
+      <div *ngIf="logged; then thenBlock else elseBlock"></div>
+      <ng-template #elseBlock>
+        <a class="social" style="padding:20px; color: #9448e0;"><i class="fas fa-users fa-w-20 fa-3x" [routerLink]="['/login']" routerLinkActive="active"></i></a>
+      </ng-template>
+      <ng-template #thenBlock>
+      </ng-template>
+  </div>
+  
+  </div>
+  
+  
+  </body>
+  
+  <!-- 
+  ------
+  <div class="container-mid">
+      <img width="150"style="padding:20px; margin-left:25%;" src="../assets/ebay logos/developersprogrammember_vert.png">
+  </div>
+  <div class="container-mid-inv">
+      <img width="200"style="padding:20px; margin-left:20%; margin-top:10%;" src="../assets/ebay logos/mercado-libre.jpg">
+  </div>
+  
+  
+  ------------------------------ -->
+  
+  <section id="resultsML" class="conainer-mid">
+  
+  <div class="back" style="background-color: #3e3e3f;">
+    <div class="container">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-2 container" style="margin-left: -15%;">
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                  <div class="container-inside-list">
+                    <div style="color: white;">Marca del Procesador</div>
+                  </div>
+                </div>
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                  <div class="container-inside-list">
+                    <div style="color: white;">Procesador</div>
+                  </div>
+                </div>
+                <div class="container-categorias-list " [routerLink]="['/armado']" routerLinkActive="active"  >
+                    <div class="container-inside-list">
+                      <div style="color: white;">Tarjeta Madre</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias " [routerLink]="['/ram']" routerLinkActive="active" style="margin-top: -20.5%;"  >
+                    <div class="container-inside">
+                      <div style="color: white;">Memoria Ram</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias-list " [routerLink]="['/hdd']" routerLinkActive="active"  >
+                    <div class="container-inside-list">
+                      <div style="color: white;">Almacenamiento</div>
+                    </div>
+                  </div>
+                  <div class="container-categorias-list " [routerLink]="['/gddr']" routerLinkActive="active"  >
+                      <div class="container-inside-list">
+                        <div style="color: white;">Tarjeta Grafica</div>
+                      </div>
+                    </div>
+                    <div class="container-categorias-list " [routerLink]="['/case']" routerLinkActive="active"  >
+                      <div class="container-inside-list">
+                        <div style="color: white;">Gabinete</div>
+                      </div>
+                    </div>
+                    <div class="container-categorias-list " [routerLink]="['/power']" routerLinkActive="active"  >
+                      <div class="container-inside-list">
+                        <div style="color: white;">Fuente de Poder</div>
+                      </div>
+                    </div>
+                    <div class="container-categorias-list " [routerLink]="['/resumen']" routerLinkActive="active"  >
+                        <div class="container-inside-list">
+                          <div style="color: white;">Resumen</div>
+                        </div>
+                      </div>
+            </div>
+  <!-- ------------------------------------------ -->
+  <div class="row col-md-11" style="padding-left:5%;">
+    <table class="table table-hover" style="margin-left: 20%;">
+        <thead>
+          <tr>
+            <th scope="col" style="color: white;">Marca</th>
+            <th scope="col" style="color: white;">Capacidad</th>  
+            <th scope="col">&nbsp;</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <td><div class="dropdown">
+            <select #selectPrioridad    id="selectPrioridad"  (change)="cambiarMarca(selectPrioridad.value)"  class="ml-3 custom-select">
+                <option value="0">Seleccione</option>
+                <option value="Corsair">Corsair </option>
+              <option value="Kingston">Kingston</option>
+              <option value="ADATA">ADATA</option>
+              <option value="G-Skill">G-Skill</option>
+                </select>
+          </div></td>
+          <td><div class="dropdown">
+              <select #selectProyectos  id="selectProyectos"  (change)="cambiarCapacidad(selectProyectos.value)"   class="ml-3 custom-select">
+                  <option value="0">Seleccione</option>
+                  <option value="4gb">4gb</option>
+              <option value="8gb">8gb</option>
+              <option value="16gb">16gb</option>
+              <option value="32gb">32gb</option>
+                  </select>
+            </div></td>
+    </table>
+    <!-- --------------------------------------------------- -->
+      <div class="col-md-6" *ngFor="let info of infoML" style=" margin-bottom: 2%;margin-top: 3%;">
+            <div class="card_user" data-aos="fade-left" data-aos-duration="2000">
+              <div class="card" style="border-color: #3e3e3f;   border-radius: 25px;">
+                <div class="card-body text-center">
+                  <div class="fondo-img">
+                  <a href="{{info.permalink}}">
+                    <img class="img-fluid" src="{{info.thumbnail}}">
+                  </a>
+                </div>
+              <div style="height: 120px ;width: 400px;">
+                  <p class="card-text" style="color: rgb(255, 255, 255);">
+                    {{info.title}}
+                  </p>
+                  <p class="card-text" style="color: rgb(255, 255, 255);">
+                      ${{info.price}} MXN
+                    </p>
+                  </div>
+                    <div style="height: 100px;width: 410px;">
+                        <button pButton type="button" label="Elegir" class="ui-button-rounded" style="background-color: #33C6FF; border-color:black;" (click)="OnAddBUILD(info.attributes[0].value_name, info.attributes[3].value_name, info.thumbnail, info.title, info.price)"></button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+    </div>
+</div>
+          </div>
+      </div>
+    </div>
+  </div>
+    </section>
+    
+  
+  <!-- 
+  -------------------------------- -->
