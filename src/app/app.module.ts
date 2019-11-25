@@ -32,6 +32,7 @@ import { DeviceDetectorModule } from 'ngx-device-detector';
 import { ComparacionesComponent } from './components/comparaciones/comparaciones.component';
 
 import { NgxPayPalModule } from 'ngx-paypal';
+
 import { ArmadoComponent } from './components/armado/armado.component';
 import { ProcesadorComponent } from './components/armado/procesador/procesador.component';
 import { MotherboardComponent } from './components/armado/motherboard/motherboard.component';

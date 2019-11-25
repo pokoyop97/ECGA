@@ -4,7 +4,6 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
 @import url('https://use.fontawesome.com/releases/v5.0.4/css/all.css');
 @import url('https://unpkg.com/aos@2.3.1/dist/aos.css');
-@import "toastr";
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
 /* position */
