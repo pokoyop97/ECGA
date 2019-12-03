@@ -73,7 +73,6 @@ export class ComparacionesComponent implements OnInit {
       titulo: titulo,
       precio: precio,
       img: img,
-      modelo: modelo,
     }
     this.afs.doc(`cart/${this.ipAddress}`).collection(this.ipAddress).add(newProject)
     this.afs.doc(`vs/${this.ipAddress}/`).collection(`${this.ipAddress}`).doc(docID).delete().then(() => {}).catch(err => {console.log(err);});

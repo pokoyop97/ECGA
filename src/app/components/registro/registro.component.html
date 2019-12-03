@@ -7,17 +7,17 @@
 						  <h3 style="color: black; margin-left:25%;">Inicio</h3>
 						</div>
 					  </div>
-				<form action="#">
+				<form #formRegister="ngForm" (ngSubmit)="registerUser(email,password,name)">
 					<h1>Crea tu cuenta</h1>
 					<div class="social-container">  
 						<a class="social"><i class="fab fa-facebook-f" (click)="onLoginFacebook()"></i></a>
 						<a class="social"><i class="fab fa-google-plus-g" (click)="onLoginGoogle()"></i></a>
 					</div>
 					<span>O usa tu correo para registrate</span>
-					<input type="text" placeholder="Nombre" />
-					<input type="email" placeholder="Email" />
-					<input type="password" placeholder="Contraseña" />
-					<button>Registrate</button>
+					<input [(ngModel)]="name" type="text" placeholder="Nombre" />
+					<input [(ngModel)]="email" name="email" type="email" placeholder="Email" />
+					<input [(ngModel)]="password" name="password" type="password" placeholder="Contraseña" />
+					<button type="submit ">Registrate</button>
 				</form>
 		  </div>
 	<div class="overlay-container">

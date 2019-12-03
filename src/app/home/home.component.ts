@@ -12,8 +12,6 @@ import {HttpClient} from '@angular/common/http';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { AngularFirestore } from "@angular/fire/firestore";
-
-
 @Component( {
   selector: 'home',
   templateUrl: './home.component.html',
@@ -37,7 +35,7 @@ export class HomeComponent implements OnInit {
     photoUrl: '',
   };
 
-  constructor(,private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
+  constructor(private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
 
   onSubmit(id: string) {
     this.item = this.searchForm.value.query;

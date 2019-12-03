@@ -89,7 +89,7 @@ export class CarritoComponent implements OnInit {
   public initConfig(): void {
     this.payPalConfig = {
         currency: 'MXN',
-        clientId: 'Abl8Pn4c-c_o0uHvy37r-VjwpmusN7ZV0kyOug0lnGrlnGQEdvodVseesRqULIb9u3nvU3DUNLkee7Qc',
+        clientId: 'AYXegRob-hOQkqsOsfTxkiIwKgtnR5lgXo45MXPKzjl0uwI98fmLYY0pqjrYEizSv1LwMwYc-i271LLB',
         createOrderOnClient: (data) => < ICreateOrderRequest > {
             intent: 'CAPTURE',
             purchase_units: [{

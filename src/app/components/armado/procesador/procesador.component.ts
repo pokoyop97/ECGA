@@ -41,6 +41,7 @@ export class ProcesadorComponent implements OnInit {
     if(id != ''){
       this.apiService.getItemML(id).subscribe( res => {
         this.infoML = res.results;
+        console.log(this.infoML)
       });
     }else{
       alert("Ingrese un elemento para buscar")
@@ -82,7 +83,7 @@ export class ProcesadorComponent implements OnInit {
       modelo: nombre +" "+modelo,
     }
     this.afs.doc(`build/${this.ipAddress}`).collection(this.ipAddress).add(newProject)
-    this.router.navigate(['/motherboard/'+nombre])
+    this.router.navigate(['/motherboard/asus '+this.marca+' '+nombre])
 
   }
 }
