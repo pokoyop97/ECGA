@@ -97,6 +97,7 @@ export class ResumenComponent implements OnInit {
       this.ipAddress = data.ip
       this.dataApi.getAllproducts("build",this.ipAddress).subscribe(projects => {
         this.projects = projects;
+        console.log(this.projects)
       });
     })
     
@@ -105,17 +106,30 @@ export class ResumenComponent implements OnInit {
     this.authService.logoutUser();
     this.router.navigate(['/home']);
   }
-  OnAddCart(img:string, titulo:string, precio:string, modelo:string, docID:string){
-    alert("Se agrego al Carrito")
+  OnAddCart(img:string, titulo:string, precio:string, docID:string){
     let newProject = {
       titulo: titulo,
       precio: precio,
       img: img,
-      modelo: modelo,
     }
-    this.afs.doc(`cart/${this.ipAddress}`).collection(this.ipAddress).add(newProject)
+    this.afs.doc(`cart/${this.ipAddress}/`).collection(this.ipAddress).add(newProject)
     this.afs.doc(`build/${this.ipAddress}/`).collection(`${this.ipAddress}`).doc(docID).delete().then(() => {}).catch(err => {console.log(err);});
+    alert("Se agrego al Carrito")
   }
+
+  OnAddCartE(img:string, titulo:string, precio:string, docID:string){
+    let newProject = {
+      titulo: titulo,
+      precio: precio,
+      img: img,
+    }
+    this.afs.doc(`cart/${this.ipAddress}/`).collection(this.ipAddress).add(newProject)
+    this.afs.doc(`build/${this.ipAddress}/`).collection(`${this.ipAddress}`).doc(this.projects[docID].Product_id).delete().then(() => {}).catch(err => {console.log(err);});
+    alert("Se agrego al Carrito")
+    this.router.navigate(['/resumen2']);
+  }
+
+
 }
 export interface ProductInterface {
   title?: string;
