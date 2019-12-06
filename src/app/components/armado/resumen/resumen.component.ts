@@ -56,39 +56,26 @@ export class ResumenComponent implements OnInit {
   constructor(private dataApi: DataApiService ,private activatedRoute:ActivatedRoute,private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
   onSubmit() {
     this.apiService.getItemE(this.projects[0].modelo).subscribe( res => {
-      console.log(this.projects[0].modelo)
       this.infoProcess = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoProcess)
     });
     this.apiService.getItemE(this.projects[1].modelo).subscribe( res => {
-      console.log(this.projects[1].modelo)
       this.infoMotherboard = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoMotherboard)
     });
     this.apiService.getItemE(this.projects[2].modelo).subscribe( res => {
-      console.log(this.projects[2].modelo)
       this.infoRam = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoRam)
     });
     this.apiService.getItemE(this.projects[3].modelo).subscribe( res => {
-      console.log(this.projects[3].modelo)
       this.infoHDD = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoHDD)
     });
     this.apiService.getItemE(this.projects[4].modelo).subscribe( res => {
-      console.log(this.projects[4].modelo)
       this.infoGddr = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoGddr)
     });
+    
     this.apiService.getItemE(this.projects[5].modelo).subscribe( res => {
-      console.log(this.projects[5].modelo)
       this.infoCase = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoCase)
     });
     this.apiService.getItemE(this.projects[6].modelo).subscribe( res => {
-      console.log(this.projects[6].modelo)
       this.infoPower = res.findItemsByKeywordsResponse[0].searchResult[0].item;
-      console.log(this.infoPower)
     });
   }
 

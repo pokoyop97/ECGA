@@ -12,8 +12,6 @@ import {HttpClient} from '@angular/common/http';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { AngularFirestore } from "@angular/fire/firestore";
-
-
 @Component( {
   selector: 'home',
   templateUrl: './home.component.html',

@@ -49,7 +49,7 @@ export class MotherboardComponent implements OnInit {
   public marca:string;
   ngOnInit() {
     this.marca = this.activatedRoute.snapshot.paramMap.get("modelo");
-    this.onSubmit("mother board asus" +this.marca);
+    this.onSubmit("motherboard" +this.marca);
     this.authService.isAuth().subscribe(user => {
       if (user) {
         this.user.name = user.displayName;
