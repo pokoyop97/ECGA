@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     photoUrl: '',
   };
 
-  constructor(,private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
+  constructor(private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
 
   onSubmit(id: string) {
     this.item = this.searchForm.value.query;

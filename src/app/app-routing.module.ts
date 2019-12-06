@@ -14,6 +14,7 @@ import { GddrComponent } from './components/armado/gddr/gddr.component';
 import { CaseComponent } from './components/armado/case/case.component';
 import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
+import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch:'full'},
@@ -30,7 +31,8 @@ const routes: Routes = [
     {path: 'gddr',component:GddrComponent},
     {path: 'case',component:CaseComponent},
     {path: 'power',component:PowerComponent},
-    {path: 'resumen',component:ResumenComponent}
+    {path: 'resumen',component:ResumenComponent},
+    {path: 'resumen2',component:Resumen2Component}
     
 ];
 

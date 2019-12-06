@@ -42,6 +42,7 @@ import { GddrComponent } from './components/armado/gddr/gddr.component';
 import { CaseComponent } from './components/armado/case/case.component';
 import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
+import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
 @NgModule( {
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -76,6 +77,7 @@ import { ResumenComponent } from './components/armado/resumen/resumen.component'
     CaseComponent,
     PowerComponent,
     ResumenComponent,
+    Resumen2Component,
   ],
   providers: [
     AngularFireAuth, 
