@@ -13,6 +13,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { AngularFirestore } from "@angular/fire/firestore";
 import { DataApiService } from 'src/app/common/data-api.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-resumen',

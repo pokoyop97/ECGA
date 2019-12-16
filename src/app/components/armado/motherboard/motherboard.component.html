@@ -98,6 +98,22 @@
               </div>  
 <!-- ----------------------------------------- -->
 <div class="row col-md-11" style="padding-left:5%;">
+  <table class="table table-hover" style="margin-left: 20%;">
+    <thead>
+    </thead>
+    <td><form [formGroup]="searchForm" (ngSubmit)="onSubmit2()">
+      <div class="form-row form-group">
+        <div class="col">
+          <div><input formControlName="query" type="text" class="form-control" placeholder="Search"></div>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary" style="background-color: #9448e0; border-color:#9448e0;">Search</button>
+        </div>
+      </div>
+    </form></td>
+      
+</table>
+
               <div class="col-md-6" *ngFor="let info of infoML" style=" margin-bottom: 2%;margin-top: 3%;">
                     <div class="card_user" data-aos="fade-left" data-aos-duration="2000">
                       <div class="card" style="border-color: #3e3e3f;   border-radius: 25px;">

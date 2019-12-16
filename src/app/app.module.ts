@@ -43,6 +43,7 @@ import { CaseComponent } from './components/armado/case/case.component';
 import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
 import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
+import { AdminComponent } from './admin/admin/admin.component';
 @NgModule( {
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -78,6 +79,7 @@ import { Resumen2Component } from './components/armado/resumen2/resumen2.compone
     PowerComponent,
     ResumenComponent,
     Resumen2Component,
+    AdminComponent,
   ],
   providers: [
     AngularFireAuth, 

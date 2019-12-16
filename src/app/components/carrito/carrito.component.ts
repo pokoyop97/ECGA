@@ -26,7 +26,7 @@ export class CarritoComponent implements OnInit {
   public ipAddress:any;
   public logged:boolean;
   public projects: any[];
-  user: UserInterface = {
+  public user: UserInterface = {
     name: '',
     email: '',
     photoUrl: '',
@@ -45,38 +45,74 @@ export class CarritoComponent implements OnInit {
         this.user.photoUrl = user.photoURL;
         this.user.User_id = user.uid;
         this.logged=true;
+        
+      this.dataApi.getAllproducts("cart",this.user.email).subscribe(projects =>{
+        this.projects = projects;
+        
+        this.total = 0;
+         this.contador = 0;
+         this.projects.forEach(element => {
+           this.total = this.total +element.precio;
+           this.contador = this.contador +1;
+         });
+       });
       }else{
         this.logged = false;
       }
     })
-    this.http.get<{ip:string}>('https://jsonip.com')
-    .subscribe( data => {
-      this.ipAddress = data.ip
-      this.dataApi.getAllproducts("cart",this.ipAddress).subscribe(projects => {
-        this.projects = projects;
-        this.total = 0;
-        this.contador = 0;
-        this.projects.forEach(element => {
-          this.total = this.total +element.precio;
-          this.contador = this.contador +1;
+      this.http.get<{ip:string}>('https://jsonip.com')
+      .subscribe( data => {
+        this.ipAddress = data.ip
+        this.dataApi.getAllproducts("cart",this.ipAddress).subscribe(projects => {
+          this.projects = projects;
+          this.total = 0;
+          this.contador = 0;
+          this.projects.forEach(element => {
+            if(this.logged == true){
+            let newProject = {
+              titulo: element.titulo,
+              precio: element.precio,
+              img: element.img,
+            }
+            this.afs.doc(`cart/${this.user.email}`).collection(this.user.email).add(newProject) 
+            this.afs.doc(`cart/${this.ipAddress}`).collection(`${this.ipAddress}`).doc(element.Product_id).delete().then(()=>console.log("se eliminaron"+ element.Product_id))
+          }
+            this.total = this.total +element.precio;
+            this.contador = this.contador +1;
+          });
         });
-        
-      });
-    }) 
+      })
   }
 
   OnDelCart(docID: string) {
+    if(this.logged != true){
+      
     this.afs
       .doc(`cart/${this.ipAddress}/`)
       .collection(`${this.ipAddress}`)
       .doc(docID)
       .delete()
       .then(() => {
-        alert("Se elimino el producto del comparador");
+        alert("Se elimino el producto del Carrito");
+      })
+      .catch(err => {
+        console.log(err);
+      });  
+
+    }else{
+    this.afs
+      .doc(`cart/${this.user.email}/`)
+      .collection(`${this.user.email}`)
+      .doc(docID)
+      .delete()
+      .then(() => {
+        alert("Se elimino el producto del Carrito");
       })
       .catch(err => {
         console.log(err);
       });
+      
+    }
   }
   onLogout() {
     this.authService.logoutUser();
@@ -123,6 +159,17 @@ export class CarritoComponent implements OnInit {
         },
         onApprove: (data, actions) => {
             actions.order.get().then(details => {
+            });
+            this.projects.forEach(element => {
+              let newProject = {
+                pedido: ,
+                titulo: element.titulo,
+                precio: element.precio,
+                img: element.img,
+              }
+              this.afs.doc(`admin/admin`).collection(`admin`).add(newProject).then(()=> {
+                alert("Se realizo la compra con exito")
+                this.router.navigate(['/home'])} )
             });
 
         },

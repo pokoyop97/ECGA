@@ -24,7 +24,7 @@ export class GddrComponent implements OnInit{
   public valorCapacidad: string = "";
   public valorMiembro: string = "";
   public valorMarca: string = "";
-  public valorTipo: string="";
+  public valorTipo: string;
   public users:any;
 
   public item: string;
@@ -54,6 +54,10 @@ export class GddrComponent implements OnInit{
       alert("Ingrese un elemento para buscar")
     }
   }
+  onSubmit2(){
+    this.valorTipo = this.searchForm.value.query;
+    this.onSubmit(this.valorTipo, this.valorMarca);
+  }
   
   ngOnInit() {
     this.authService.isAuth().subscribe(user => {
@@ -78,7 +82,6 @@ export class GddrComponent implements OnInit{
     this.router.navigate(['/home']);
   }
   OnAddBUILD(nombre:string, modelo:string, img:string, titulo:string, precio:string){
-    
     alert("Se agrego al Carrito")
     let newProject = {
       titulo: titulo,
@@ -93,24 +96,9 @@ export class GddrComponent implements OnInit{
 
   cambiarMarca(value: any) {
     this.valorMarca = value;
-    if(value =="ATI"){
-      this.ATI = true;
-      this.NVIDIA=false;
-    }else{
-      this.ATI = false;
-      this.NVIDIA=true;
-    }
-    this.valorMiembro =this.valorMarca  +" "+ this.valorTipo;
-    this.apiService.getItemML(this.valorMiembro).subscribe(users => {
-      this.infoML = users.results;
-    });
   }
   cambiarTipo(value: any) {
     this.valorTipo = value;
-    this.valorMiembro =this.valorMarca  +" "+ this.valorTipo;
-    this.apiService.getItemML(this.valorMiembro).subscribe(users => {
-      this.infoML = users.results;
-    });
   }
 
 }

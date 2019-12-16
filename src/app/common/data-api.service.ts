@@ -54,4 +54,15 @@ export class DataApiService {
     });
   }));
   }
+  public getAllproductsAdmin(tipo:string){
+    this.productsCollection = this.afs.collection<ProductInterface>(tipo+`/`+tipo+`/`+tipo);
+    return this.products = this.productsCollection.snapshotChanges()
+    .pipe(map(changes=>{
+      return changes.map( action=>{
+      const data = action.payload.doc.data() as ProductInterface;
+      data.Product_id = action.payload.doc.id;
+      return data;
+    });
+  }));
+  }
 }

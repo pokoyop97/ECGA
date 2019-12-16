@@ -102,6 +102,7 @@
           <tr>
             <th scope="col" style="color: white;">Marca</th>
             <th scope="col" style="color: white;">Capacidad</th>  
+            <th scope="col" style="color: white;">Rendimiento</th>  
             <th scope="col">&nbsp;</th>
             <th scope="col">&nbsp;</th>
           </tr>
@@ -116,14 +117,23 @@
                 </select>
           </div></td>
           <td><div class="dropdown">
-              <select #selectProyectos  id="selectProyectos"  (change)="cambiarCapacidad(selectProyectos.value)"   class="ml-3 custom-select">
-                  <option value="0">Seleccione</option>
-                  <option value="4gb">4gb</option>
-              <option value="8gb">8gb</option>
-              <option value="16gb">16gb</option>
-              <option value="32gb">32gb</option>
-                  </select>
-            </div></td>
+            <select #selectProyectos  id="selectProyectos"  (change)="cambiarCapacidad(selectProyectos.value)"   class="ml-3 custom-select">
+                <option value="0">Seleccione</option>
+                <option value="4gb">4gb</option>
+            <option value="8gb">8gb</option>
+            <option value="16gb">16gb</option>
+            <option value="32gb">32gb</option>
+                </select>
+          </div></td>
+          <td><div class="dropdown">
+            <select #selectProyectos  id="selectProyectos"  (change)="cambiarCapacidad(selectProyectos.value)"   class="ml-3 custom-select">
+                <option value="0">Seleccione</option>
+                <option value="4gb">4gb</option>
+            <option value="8gb">8gb</option>
+            <option value="16gb">16gb</option>
+            <option value="32gb">32gb</option>
+                </select>
+          </div></td>
     </table>
     <!-- --------------------------------------------------- -->
       <div class="col-md-6" *ngFor="let info of infoML" style=" margin-bottom: 2%;margin-top: 3%;">

@@ -20,6 +20,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
 })
 export class ProcesadorComponent implements OnInit {
   public item: string;
+  public valorTipo: string;
+  public cadena : string; 
   public infoML: Observable<ProductInterface[]>;
   public infoE: Observable<ProductInterface[]>;
   ipAddress:any;
@@ -37,7 +39,19 @@ export class ProcesadorComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute,private http: HttpClient, private deviceService: DeviceDetectorService, private router: Router , private apiService: ApiService, private authService: AuthService, private afs: AngularFirestore,) { }
 
-  onSubmit(id: string) {
+  onSubmit(id: string, modelo:string) {
+    this.cadena = id +' '+modelo
+    alert(this.cadena)
+    if(id != ''){
+      this.apiService.getItemML(this.cadena).subscribe( res => {
+        this.infoML = res.results;
+        console.log(this.infoML)
+      });
+    }else{
+      alert("Ingrese un elemento para buscar")
+    }
+  }
+  onSubmit1(id:string){
     if(id != ''){
       this.apiService.getItemML(id).subscribe( res => {
         this.infoML = res.results;
@@ -47,11 +61,17 @@ export class ProcesadorComponent implements OnInit {
       alert("Ingrese un elemento para buscar")
     }
   }
+
+  onSubmit2(){
+    this.valorTipo = this.searchForm.value.query;
+    alert(this.valorTipo)
+    this.onSubmit( this.marca, this.valorTipo);
+  }
   
   public marca:string;
   ngOnInit() {
     this.marca = this.activatedRoute.snapshot.paramMap.get("marca");
-    this.onSubmit(this.marca);
+    this.onSubmit1(this.marca);
     this.authService.isAuth().subscribe(user => {
       if (user) {
         this.user.name = user.displayName;

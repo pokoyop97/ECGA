@@ -15,6 +15,7 @@ import { CaseComponent } from './components/armado/case/case.component';
 import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
 import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch:'full'},
@@ -32,7 +33,8 @@ const routes: Routes = [
     {path: 'case',component:CaseComponent},
     {path: 'power',component:PowerComponent},
     {path: 'resumen',component:ResumenComponent},
-    {path: 'resumen2',component:Resumen2Component}
+    {path: 'resumen2',component:Resumen2Component},
+    {path: 'admin',component:AdminComponent}
     
 ];
 
