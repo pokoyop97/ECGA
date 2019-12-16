@@ -21,6 +21,7 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 })
 export class CarritoComponent implements OnInit {
   public payPalConfig?: IPayPalConfig;
+  public email?: string;
   public total: number=0;
   public contador: number=0;
   public ipAddress:any;
@@ -45,6 +46,7 @@ export class CarritoComponent implements OnInit {
         this.user.photoUrl = user.photoURL;
         this.user.User_id = user.uid;
         this.logged=true;
+        this.email = this.user.email;
         
       this.dataApi.getAllproducts("cart",this.user.email).subscribe(projects =>{
         this.projects = projects;
@@ -162,7 +164,7 @@ export class CarritoComponent implements OnInit {
             });
             this.projects.forEach(element => {
               let newProject = {
-                pedido: ,
+                pedido: this.email,
                 titulo: element.titulo,
                 precio: element.precio,
                 img: element.img,

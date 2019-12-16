@@ -16,6 +16,7 @@ import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
 import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
 import { AdminComponent } from './admin/admin/admin.component';
+import { NotifiComponent } from './components/notifi/notifi.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent, pathMatch:'full'},
@@ -34,7 +35,8 @@ const routes: Routes = [
     {path: 'power',component:PowerComponent},
     {path: 'resumen',component:ResumenComponent},
     {path: 'resumen2',component:Resumen2Component},
-    {path: 'admin',component:AdminComponent}
+    {path: 'admin',component:AdminComponent},
+    {path: 'notifi',component:NotifiComponent},
     
 ];
 

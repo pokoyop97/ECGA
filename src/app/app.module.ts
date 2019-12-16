@@ -44,6 +44,7 @@ import { PowerComponent } from './components/armado/power/power.component';
 import { ResumenComponent } from './components/armado/resumen/resumen.component';
 import { Resumen2Component } from './components/armado/resumen2/resumen2.component';
 import { AdminComponent } from './admin/admin/admin.component';
+import { NotifiComponent } from './components/notifi/notifi.component';
 @NgModule( {
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -80,6 +81,7 @@ import { AdminComponent } from './admin/admin/admin.component';
     ResumenComponent,
     Resumen2Component,
     AdminComponent,
+    NotifiComponent,
   ],
   providers: [
     AngularFireAuth, 
